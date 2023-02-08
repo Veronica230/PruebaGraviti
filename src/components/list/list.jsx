@@ -7,7 +7,7 @@ export const List = () => {
 
   useEffect(() => {
     const exist = localStorage.getItem('codes');
-    const qr = exist ? exist.split(',') : [];
+    const qr = exist ? exist.split(',') : "[]";
     setQrs(JSON.parse(qr));
   }, [])
   return (
@@ -22,6 +22,9 @@ export const List = () => {
             qrs?.map((item, index) => (
               <li className='list-disc w-full font-light p-2' key={`${item}-${index + 1}`}>{item}</li>
             ))
+          }
+          {
+            qrs?.length <= 0 && <span className='py-1 font-semibold text-2xl text-red-500 text-center w-full'>No hay valores guardados </span>
           }
         </ul>
       </div>

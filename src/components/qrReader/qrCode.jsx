@@ -10,7 +10,7 @@ export const QrView = () => {
 
   useEffect(() => {
     const exist = localStorage.getItem('codes');
-    const qr = exist ? exist.split(',') : [];
+    const qr = exist ? exist.split(',') : "[]";
     setQrStorage(JSON.parse(qr));
   }, [setQrStorage]);
 
